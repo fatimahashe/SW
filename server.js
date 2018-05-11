@@ -6,7 +6,7 @@ var app = express();
  * Module to implement mongodb API
  */
 var mongojs = require('mongojs');
-var db = mongojs('contactlist', ['contactlist']);
+var db = mongojs('mongodb://fat:123@ds119090.mlab.com:19090/fat', ['fat']);
 
 /**
  * Parse incoming request bodies
