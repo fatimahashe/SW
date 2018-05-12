@@ -37,7 +37,7 @@
 
 </div>
 <div class="container">
-    <form class="navbar-form navbar-right" id="addUSer">
+    <form class="navbar-form navbar-right" id="addmainIDr">
                 <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#newUserModal" >New
                     contact
                 </button>
@@ -199,7 +199,7 @@
     $(document).ready(function(){
         if (localStorage.getItem("username") === null){
             document.getElementById("authUser").innerHTML = "";
-            document.getElementById("addUSer").innerHTML = "";//
+            document.getElementById("addmainIDr").innerHTML = "";//
             document.getElementById("LastEdit").innerHTML = "";
             $("#welcome").append('<div class="alert alert-danger">Welcome</div>');
 

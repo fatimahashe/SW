@@ -6,7 +6,7 @@ var app = express();
  * Module to implement mongodb API
  */
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://fat:123@ds119090.mlab.com:19090/fat', ['fat']);
+var db = mongojs('[fatmanote]', ['contactlist']);
 
 /**
  * Parse incoming request bodies
@@ -14,7 +14,7 @@ var db = mongojs('mongodb://fat:123@ds119090.mlab.com:19090/fat', ['fat']);
  */
 var bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + '/public')); // Add static directory
+app.use(express.static(__dirname + '/main')); // Add static directory
 app.use(bodyParser.json());
 
 
@@ -96,7 +96,6 @@ app.get('/signup', function (req, res) {
     res.redirect('index.html');
 });
 app.post('/signup', function (req, res) {
-    // console.log(req.body);
     db.user.insert(req.body, function (err, doc) {
         
         res.json(doc);
@@ -107,7 +106,6 @@ app.post('/signup', function (req, res) {
     /login
 */
 app.post('/login', function (req, res) {
-    // console.log(req.body);
     var test=false;
     db.user.findOne({username: req.body.username , password: req.body.password}, function (err, doc) {
         //console.log(doc);
@@ -117,10 +115,7 @@ app.post('/login', function (req, res) {
     });
     
 });
-/*
-    Get Method to Signout
-    /signout
-*/
+
 app.get('/signout', function(req, res) {
     
     
